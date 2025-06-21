@@ -1,8 +1,11 @@
-import React from 'react'
+import React from "react";
+import Header from "./Header.jsx";
 
 const Browser = () => {
-    return (
-        <div>Browser</div>
-    )
-}
-export default Browser
+  return (
+    <div>
+      <Header />
+    </div>
+  );
+};
+export default Browser;
