@@ -4,6 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase.js";
 import { useNavigate } from "react-router";
 import { addUser, removeUser } from "../utils/userSlice.js";
+import { LOGO, USER_AVATAR } from "../utils/constants.js";
 
 const Header = () => {
   const user = useSelector((state) => state.user);
@@ -17,7 +18,8 @@ const Header = () => {
       });
   };
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    console.log("useEffect called");
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName, photoUrl } = user;
         dispatch(
@@ -34,20 +36,16 @@ const Header = () => {
         navigate("/");
       }
     });
+    return () => {
+      unsubscribe();
+    };
   }, []);
   return (
     <div className="absolute w-full px-12 py-2 bg-gradient-to-b from-black flex justify-between">
-      <img
-        className="w-44"
-        src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production/consent/87b6a5c0-0104-4e96-a291-092c11350111/01938dc4-59b3-7bbc-b635-c4131030e85f/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        alt="logo"
-      />
+      <img className="w-44" src={LOGO} alt="logo" />
       {user && (
         <div className="flex items-center space-x-4 text-white">
-          <img
-            src={user.photoURL || "https://i.pravatar.cc/40"}
-            alt="userprofile"
-          />
+          <img src={user.photoURL || USER_AVATAR} alt="userprofile" />
           <span>{user.displayName || "username"}</span>
           <button
             onClick={handleSignOut}
