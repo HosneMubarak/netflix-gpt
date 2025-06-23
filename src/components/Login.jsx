@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
 
 const Login = () => {
-  const [isSignInForm, setIsSignInForm] = React.useState(false);
+  const [isSignInForm, setIsSignInForm] = React.useState(true);
   const [errorMessage, setErrorMessage] = React.useState(null);
   const dispatch = useDispatch();
   const toggleForm = () => {
@@ -121,7 +121,7 @@ const Login = () => {
           className="cursor-pointer p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {!isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p className="cursor-pointer" onClick={toggleForm}>
           {isSignInForm

@@ -3,7 +3,7 @@ import { API_OPTIONS } from "../utils/constants.js";
 import { useEffect } from "react";
 import { addTopRatedMovies } from "../utils/moviesSlice.js";
 
-const useTopratedMovies = () => {
+const useTopRatedMovies = () => {
   const dispatch = useDispatch();
   const getTopratedMovies = async () => {
     const data = await fetch(
@@ -17,4 +17,4 @@ const useTopratedMovies = () => {
     getTopratedMovies();
   }, []);
 };
-export default useTopratedMovies;
+export default useTopRatedMovies;
