@@ -41,7 +41,7 @@ const Header = () => {
     };
   }, []);
   return (
-    <div className="absolute w-full px-12 py-2 bg-gradient-to-b from-black flex justify-between">
+    <div className="absolute w-full px-12 py-2 bg-gradient-to-b from-black flex justify-between z-50">
       <img className="w-44" src={LOGO} alt="logo" />
       {user && (
         <div className="flex items-center space-x-4 text-white">
@@ -49,7 +49,7 @@ const Header = () => {
           <span>{user.displayName || "username"}</span>
           <button
             onClick={handleSignOut}
-            className="bg-red-600 hove:bg-red-700 text-white px-4 py-1 rounded"
+            className="bg-red-600 hove:bg-red-700 text-white px-4 py-1 rounded cursor-pointer"
           >
             Sign Out
           </button>
