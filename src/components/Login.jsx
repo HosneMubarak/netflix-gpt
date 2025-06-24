@@ -10,6 +10,7 @@ import { auth } from "../utils/firebase.js";
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
+import { BG_IMAGE_URL } from "../utils/constants.js";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = React.useState(true);
@@ -84,10 +85,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/8200f588-2e93-4c95-8eab-ebba17821657/web/BD-en-20250616-TRIFECTA-perspective_a237910f-1432-435d-ba49-45bf0ba10a60_large.jpg"
-          alt="bg-logo"
-        />
+        <img src={BG_IMAGE_URL} alt="bg-logo" />
       </div>
       <form
         className="w-4/12 absolute p-12 my-36 mx-auto right-0 left-0 text-white rounded-lg bg-black/70"
@@ -121,7 +119,7 @@ const Login = () => {
           className="cursor-pointer p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
         >
-          {!isSignInForm ? "Sign In" : "Sign Up"}
+          {!isSignInForm ? "Sign Up" : "Sign In"}
         </button>
         <p className="cursor-pointer" onClick={toggleForm}>
           {isSignInForm
