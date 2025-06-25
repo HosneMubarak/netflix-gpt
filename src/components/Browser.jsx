@@ -11,6 +11,7 @@ import GptSearch from "./GptSearch.jsx";
 
 const Browser = () => {
   const showGptSearch = useSelector((store) => store.gpt.toggleGptSearch);
+
   useNowPlayingMovies();
   usePopularMovies();
   useTopratedMovies();

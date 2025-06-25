@@ -5,8 +5,8 @@ import { BG_IMAGE_URL } from "../utils/constants.js";
 
 const GptSearch = () => {
   return (
-    <div>
-      <div className="absolute -z-20">
+    <div className="sm: ">
+      <div className="fixed -z-20">
         <img src={BG_IMAGE_URL} alt="bg-logo" />
       </div>
       <GptSearchBar />
